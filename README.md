@@ -29,3 +29,27 @@ Modelar la historia clínica de una veterinaria de pequeños animales: tutores y
 ## Resultado
 
 ![Diagrama](captura.png)
+
+---
+
+## Normalización
+
+Se normaliza el documento `Consulta` con sus registros de `Aplicacion`. En todas las tablas la PK va en la primera columna y las FK al final. Los datos son de ejemplo.
+
+**Forma 0.** Una sola tabla con todo junto. Hay celdas con listas: cada consulta puede tener varios registros de aplicacion.
+
+![Forma 0](normalizacion/00-forma-0.png)
+
+**1FN.** Cada elemento de la lista pasa a su propia fila y la clave queda compuesta: (`id_consulta`, `id_vacuna`).
+
+![1FN](normalizacion/01-1fn.png)
+
+**2FN.** Los datos de consulta dependen solo de `id_consulta` y los de vacuna solo de `id_vacuna`. Se separan en `Consulta` y `Vacuna`; `Aplicacion` queda con la clave compuesta y lo que depende de ambos.
+
+![2FN](normalizacion/02-2fn.png)
+
+**3FN.** Los datos de `Mascota`, `Veterinario` y `Tutor` dependen de su propio identificador y no de la PK de consulta, así que pasan a tablas aparte. En el modelo final cada tabla usa su id propio.
+
+![3FN](normalizacion/03-3fn.png)
+
+Para que se vea la lista en la Forma 0, se agregó un registro de ejemplo en `Aplicacion` para el consulta 1.
