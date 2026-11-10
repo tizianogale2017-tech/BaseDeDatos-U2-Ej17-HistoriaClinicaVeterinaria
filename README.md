@@ -53,3 +53,9 @@ Se normaliza el documento `Consulta` con sus registros de `Aplicacion`. En todas
 ![3FN](normalizacion/03-3fn.png)
 
 Para que se vea la lista en la Forma 0, se agregó un registro de ejemplo en `Aplicacion` para el consulta 1.
+
+---
+
+## SQL
+
+El script `script.sql` crea las tablas con sus claves primarias y foráneas y carga datos de ejemplo. Está probado en SQLite (con `PRAGMA foreign_keys = ON;`).
